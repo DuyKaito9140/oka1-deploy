@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ./../elements/booking-layout/header-booking %>
+</head>
+
+<body>
+    <% include ./../elements/home-layout/top-menu-layout %>
+    <!-- breadcrumb start -->
+    <% include ./../elements/booking-payment-layout/breadcrumb-payment %>
+    <!-- breadcrumb end -->
+
+
+    <!-- booking section start -->
+    <% include ./../elements/booking-payment-layout/booking-payment-section %>
+    <!-- booking section end -->
+
+
+    <!-- book now section start -->
+    <div class="book-panel">
+        <h6 class="mb-0 text">grand total : <span>$2750</span></h6>
+        <button type="button" class="btn bottom-btn theme-color">make payment</button>
+    </div>
+    <!-- book now section end -->
+
+
+    <!-- footer start -->
+    <% include ./../elements/footer-other %>
+    <!-- footer end -->
+
+
+    <!-- tap to top -->
+    <div class="tap-top">
+        <div>
+            <i class="fas fa-angle-up"></i>
+        </div>
+    </div>
+    <!-- tap to top end -->
+
+
+    <!-- setting start -->
+    <div class="theme-setting">
+        <div class="dark">
+            <input class="tgl tgl-skewed" id="dark" type="checkbox">
+            <label class="tgl-btn" data-tg-off="Dark" data-tg-on="Light" for="dark"></label>
+        </div>
+        <div class="rtl">
+            <input class="tgl tgl-skewed" id="rtl" type="checkbox">
+            <label class="tgl-btn" data-tg-off="RTL" data-tg-on="LTR" for="rtl"></label>
+        </div>
+    </div>
+    <!-- setting end -->
+
+
+
+</body>
+
+</html>

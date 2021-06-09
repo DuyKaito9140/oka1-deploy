@@ -1,0 +1,287 @@
+<head>   
+	<% include ./elements/home-layout/header-layout %>
+    <link rel="stylesheet" type="text/css" href="../assets/css/styte.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        .sidenav-item table tr {
+            height: 50px;
+        }
+        .btn-outline-light{
+            cursor: pointer;
+        }
+        .sidenav-item table tr td{
+            color: white;
+        }
+        .navbar-left ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 230px;
+            background-color: black;
+        }
+
+        .navbar-left li {
+            background-color: black;
+            width: 230px;
+        }
+        .navbar-left li a i {
+            margin: 0px 16px 0px 3px;
+            font-size: 17px;
+        }
+        .navbar-left li a {
+            display: block;
+            color: #ffffff;
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+
+        .navbar-left li a.active {
+            background-color: #5308d5;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+        }
+
+        .navbar-left li a:hover:not(.active) {
+            background-color: #d32d3d;
+            font-weight: bold;
+            color: snow;
+        }
+
+        .contrainer-home {
+            margin-top: -22px;
+            margin-left: 245px;
+            margin-right: 2px;
+        }
+        .navbar-left {
+            position:fixed;
+            height: 100%;
+            margin-top: 88px;
+            margin-left: 1px;
+            background-color: black;
+        }
+        .content-home {
+            margin-left: 234px;
+            margin-top: -2px;
+        }
+        
+    </style>
+</head>
+<body>
+    <% if (user1.status == "SUCCES") { %>
+        <div class="sidenav123">
+            <span class="btnclose123" onclick="myuserin()">&times;</span>
+            <form class="sidenav-item" method="get">
+                <div style="text-align: center; margin-top: -30px;"><img src="../assets/images/icon/userlogo.png" alt="Avatar" style="border-radius: 50%; width: 120px; height: 120px"></div>
+                <a style="text-align: center; margin-left: 0px; font-size: 20px" name="fullname"><%= user1.data.auth[0].lastName %> <%= user1.data.auth[0].fristName %></a>
+                <a style="text-align: center; margin-left: 0px; margin-top: -10px; font-size: 12px" name="idUser">ID: <%= user1.data.auth[0].userId%></a>
+                <table style="margin: auto">
+                    <tr>
+                        <td>Email: </td>
+                        <td style="padding-left: 10px" name="email"><%= user1.data.auth[0].email %></td>
+                    </tr>
+                    <tr>
+                        <td>Số điện thoại: </td>
+                        <td style="padding-left: 10px" name="phone"><%= user1.data.auth[0].phone %></td>
+                    </tr>
+                    <tr>
+                        <td>Địa chỉ: </td>
+                        <td style="padding-left: 10px" name="userAddress"><%= user1.data.auth[0].userAddress %></td>
+                    </tr> 
+                    <tr>
+                        <td>Card Number: </td>
+                        <td style="padding-left: 10px" name="cards"><%= user1.data.auth[0].cards %></td>
+                    </tr>                   
+                </table>
+                <br />
+                <br />
+                <div style="text-align: center; margin: 0px 55px">
+                      <button type="submit" class="btn btn-outline-light">Chỉnh sửa thông tin</button>
+                </div>
+            </form>
+        </div>  
+        <header class="overlay-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="menu">
+                            <div class="brand-logo">
+                                <a href="../index.html">
+                                    <img src="../assets/images/logo_hethongbig.png" alt=""
+                                        class="img-fluid blur-up lazyload">
+                                </a>
+                            </div>
+                            <nav>
+                                <div class="main-navbar">
+                                    <div id="mainnav">
+                                        <div class="toggle-nav"><i class="fa fa-bars sidebar-bar"></i></div>
+                                        <div class="menu-overlay"></div>
+                                        <ul class="nav-menu" style="margin-left: -25px;">
+                                            <li class="dropdown">
+                                                <a href="/" class="nav-link menu-title">Home</a>                                       
+                                            </li>
+                                            <li class="dropdown">
+                                                <a href="/setbody/booknow" class="nav-link menu-title">Ticket</a>                                        
+                                            </li>
+                                            <li class="dropdown">
+                                                    <a href="/setbody/history" class="nav-link menu-title">History</a>                                       
+                                            </li>
+                                            <li class="dropdown">
+                                                    <a href="/setbody/promotion" class="nav-link menu-title">Promotion</a>                                        
+                                            </li>                                   
+                                            <li class="dropdown">
+                                                <a href="/setbody/about" class="nav-link menu-title">About</a>                                        
+                                            </li>
+                                            <li class="dropdown">
+                                                <a href="/setbody/contact" class="nav-link menu-title">Contact</a>                                        
+                                            </li>                                   
+                                        </ul>
+                                    </div>
+                                </div>
+                            </nav>
+                            <ul class="header-right">
+                                <li class="user rounded5" style="height: 33px;">
+                                    <% if(user1.data.auth[0].value_TotalPoint==null){%>
+                                        <i class="fa fa-money" style="color: #ff0000; font-size: 14px; padding-top: 5px;">&nbsp; <b>0</b> points</i>
+                                    <%}else{%>
+                                        <i class="fa fa-money" style="color: #ff0000; font-size: 14px; padding-top: 5px;">&nbsp; <b><%= user1.data.auth[0].value_TotalPoint %></b> points</i>
+                                    <%}%>
+                                    
+                                </li>
+        
+                                <li class="user rounded5" onclick="myuserout()" style="cursor: pointer; height: 33px;">
+                                    <span><%= user1.data.auth[0].lastName %> <%= user1.data.auth[0].fristName %></span>
+                                </li>        
+                                <li class="user rounded5" style="height: 33px;padding-top: 10px;">
+                                    <a href="setbody/logout">
+                                        <i class="fas fa-sign-out-alt">&nbsp;Log Out</i>
+                                    </a>
+                                </li>
+                            </ul>                                                
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <%- body %> 
+    <% }else if(user2.status == "SUCCES"){%>                            
+        <nav class="navbar navbar-expand-lg navbar-light bg-primary" style="position: fixed;width: 100%;z-index: 100;">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <img src="../assets/images/logo_hethongbig.png" width="220" height="70" style="margin-left: 5px;">
+
+            <a class="navbar-brand text-white setfont" style="margin-left: 30px; font-size: 35px; margin-top: 8px;">PARTNER</a>
+    
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="margin-left: 10px;">
+
+            <span style="font-size: 25px; border-radius: 5px; font-weight: 600; color: burlywood; margin-top: 10px;"><%= user2.data.partnerUsername %></span>
+    
+            <form class="form-inline my-2 my-lg-0" style="display: flex; right: 20px; margin-left: 430px;">
+                <input class="form-control mr-sm-2" type="search" name="mysearch" style="width: 235px;" placeholder="Search" aria-label="Search">
+                <button type="submit" id="btnserch" class="btn btn-danger" style="width: 60px; height: 40px;">
+                    <i class="fas fa-search"></i>
+                </button>
+                <a href="/setbody/logout" style="background-color: white; color: #0088ff;height: 40px; padding: 13px 6px; border-radius: 5px; font-size: 12px; margin-left: 8px;">
+                    <i class="fas fa-sign-out-alt">&nbsp;Log Out</i>
+                </a>
+            </form>
+            </div>
+        </nav>        
+        <div class="navbar-left">
+            <ul>
+                <li><a class="active" style="width: 230px">MENU</a></li>
+                <br />
+                <li><a href="/home/index"><i class="fas fa-home" style="margin-left: 10px; margin-right: 14px;"></i>Home</a></li>
+                <li><a href="/ticket/index"><i class="fas fa-clipboard-list" style="margin-left: 14px;"></i>Ticket</a></li>
+                <li><a href="/flight/index"><i class="fas fa-plane-departure" style="margin-left: 9px;"></i>Flight</a></li>
+                <li><a href="/plane/index"><i class="fas fa-plane" style="margin-left: 10px;"></i>Plane</a></li>
+                <li><a href="/setbody/about"><i class="fab fa-accusoft" style="margin-left: 10px; margin-right: 14px;"></i>About</a></li>
+                <li><a href="/setbody/contact"><i class="fas fa-phone-alt" style="margin-left: 9px; margin-right: 16px;"></i>Contact</a></li>
+            </ul>
+        </div>
+        <br />
+        <div class="content-home">
+            <%- body %> 
+        </div>
+        
+    <%}
+    else {%>
+        <header class="overlay-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="menu">
+                            <div class="brand-logo">
+                                <a href="../index.html">
+                                    <img src="../assets/images/logo_hethongbig.png" alt=""
+                                        class="img-fluid blur-up lazyload">
+                                </a>
+                            </div>
+                            <nav>
+                                <div class="main-navbar">
+                                    <div id="mainnav">
+                                        <div class="toggle-nav"><i class="fa fa-bars sidebar-bar"></i></div>
+                                        <div class="menu-overlay"></div>
+                                        <ul class="nav-menu" style="margin-left: -25px;">
+                                            <li class="dropdown">
+                                                <a href="/" class="nav-link menu-title">Home</a>                                       
+                                            </li>
+                                            <li class="dropdown">
+                                                <a class="nav-link menu-title">Ticket</a>                                        
+                                            </li>
+                                            <li class="dropdown">
+                                                <a href="/setbody/about" class="nav-link menu-title">About</a>                                        
+                                            </li>
+                                            <li class="dropdown">
+                                                <a href="/setbody/contact" class="nav-link menu-title">Contact</a>                                        
+                                            </li>                                   
+                                        </ul>
+                                    </div>
+                                </div>
+                            </nav>
+                            
+                            <ul class="header-right">
+                                <li class="user rounded5" style="height: 33px; padding-top: 10px;">
+                                    <a href="setbody/login">
+                                        <i class="fas fa-user">&nbsp;Login</i>
+                                    </a>
+                                </li>
+                                <li class="user rounded5" style="height: 33px; padding-top: 10px;">
+                                    <a href="setbody/signin">
+                                        <i class="fas fa-sign-in-alt">&nbsp;Register</i>
+                                    </a>
+                                </li>
+                            </ul>                
+                                              
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>  
+        <%- body %>              
+    <%}%>
+    
+    <!--111111111111111111111111111111111111111111111111111111111111111111111-->
+
+          
+	<!--Script start-->
+	<% include ./elements/home-layout/script-layout %>
+	<!--Script end-->    
+    <script>
+        new WOW().init();
+        $('#datepicker').datepicker({
+            uiLibrary: 'bootstrap4'
+        });
+        $('#datepicker1').datepicker({
+            uiLibrary: 'bootstrap4'
+        });
+        function myuserout() {
+            $('.sidenav123').addClass('show123');
+        }
+        function myuserin() {
+            $('.sidenav123').removeClass('show123');
+        }        
+    </script>
+
+</body>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>  
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    /> 
+    
+  </head>
+  <body>
+    <div style="width: 100%; height: 60px; background-color: #00a6ff;"></div>      
+    <br /> 
+    <div class="container mt-2">
+      <a href="/ticket/add" class="btn btn-success">Thêm Vé mới</a>
+      <table class="table">
+        <thead>
+            <th>Image</th>
+            <th>Ngày bay</th>
+            <th>Giờ bay</th>
+            <th>Giờ đến</th>
+            <th>Nơi đi</th>
+            <th>Nới đến</th>
+            <th>Tên máy bay</th>
+            <th>Hãng máy bay</th>
+            <th>Loại vé</th>
+            <th>Tổng Số kg hành lý</th>
+            <th>Tổng giá vé (VNĐ)</th>
+            <th>Trạng thái</th>
+            <th></th>
+        </thead>
+        <tbody>
+          <% result.recordset.forEach(function (vemaybay) { %>
+            <% if(vemaybay.TenHang == user2.data.partnerUsername) {%>
+            <tr>
+              <td>
+                <% if (vemaybay.TenHang=="BamBoo Airways") { %>
+                  <img src="../assets/images/flights/airlines/bamboo_airway.png"
+                    class="img-fluid blur-up lazyload" alt="" width="150" height="150">                  
+                <% } 
+                else if (vemaybay.TenHang=="VietNam Airlines") { %>
+                  <img src="../assets/images/flights/airlines/vietnam_airline.png"
+                    class="img-fluid blur-up lazyload" alt="" width="150" height="150">                 
+                <% }
+                else if (vemaybay.TenHang=="VietJet Air") { %>
+                  <img src="../assets/images/flights/airlines/vietject_logo.jpg"
+                    class="img-fluid blur-up lazyload" alt="" width="150" height="150" style="margin-top: 10px;">                   
+                <% } %></td>                   
+                <td><%= vemaybay.NgayBay.getDate()%>/<%= vemaybay.NgayBay.getMonth() + 1%>/<%= vemaybay.NgayBay.getFullYear()%></td>
+                <td><%= vemaybay.GioBay %></td>
+                <td><%= vemaybay.GioDen %></td>
+                <td><%= vemaybay.NoiDi %></td>  
+                <td><%= vemaybay.NoiDen %></td>
+                <td><%= vemaybay.TenMayBay %></td>
+                <td><%= vemaybay.TenHang %></td>
+                <td><%= vemaybay.TenLoaiVe %></td>
+                <% var tonggiave = vemaybay.GiaVe + vemaybay.TienTraThem;
+                   var tongsoky = vemaybay.SoKgHanhLy + vemaybay.ThemSoKg; %>
+                <td><%= tongsoky%></td>
+                <td><%= tonggiave  %></td> 
+                  <% if (vemaybay.TrangThai == "Còn vé"){%>                       
+                      <td style="text-align: center" class="conve"><span style="color: #45e84a"><%= vemaybay.TrangThai %></span></td>                        
+                  <% }else if (vemaybay.TrangThai == "Hết vé"){%>                     
+                      <td style="text-align: center" class="hetve"><span style="color: red"><%= vemaybay.TrangThai %></span></td>                        
+                  <%}%>
+                <td>
+                  <a href="/ticket/edit/<%= vemaybay.idVe %>" class="btn btn-primary" style="width: 62px;">Sửa</a>
+                  <a href="/ticket/delete/<%= vemaybay.idVe %>" class="btn btn-danger" style="margin-top: 5px;">Xóa</a>
+                </td>
+            </tr>
+            <%}%>                                   
+         <% }) %>
+        </tbody>
+      </table>
+    </div> 
+  </body>
+</html>

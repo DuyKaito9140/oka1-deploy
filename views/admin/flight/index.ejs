@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head> 
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    /> 
+    
+  </head>
+  <body>
+    <div style="width: 100%; height: 60px; background-color: #00a6ff;"></div>      
+    <br /> 
+    <div class="container mt-3">
+      <a href="/flight/add" class="btn btn-success">Thêm mới chuyến máy bay</a>
+      <table class="table">
+        <thead>
+          <th>ID Chuyến bay</th>
+          <th>Ngày bay</th>
+          <th>Giờ bay</th>
+          <th>Giờ đến</th>
+          <th>Nơi đi</th>
+          <th>Nơi đến</th>
+          <th>Tên máy bay</th>
+          <th>Hãng máy bay</th>
+          <th></th>
+        </thead>
+        <tbody>
+          <% result.recordset.forEach(function (chuyenbay) { %>
+            <% if(chuyenbay.TenHang == user2.data.partnerUsername) {%>
+            <tr>  
+              <td><%= chuyenbay.idChuyenBay %></td>
+              <td><%= chuyenbay.NgayBay.getDate()%>/<%= chuyenbay.NgayBay.getMonth() + 1%>/<%= chuyenbay.NgayBay.getFullYear()%></td>
+              <td><%= chuyenbay.GioBay %></td>
+              <td><%= chuyenbay.GioDen %></td>
+              <td><%= chuyenbay.NoiDi %></td>
+              <td><%= chuyenbay.NoiDen %></td>
+              <td><%= chuyenbay.TenMayBay %></td>
+              <td><%= chuyenbay.TenHang %></td>
+                <td>
+                  <a href="/flight/edit/<%= chuyenbay.idChuyenBay %>" class="btn btn-primary" style="width: 62px;">Sửa</a>    
+                  <a href="/flight/delete/<%= chuyenbay.idChuyenBay %>" class="btn btn-danger">Xóa</a>
+                </td>
+            </tr>  
+            <%}%>                                 
+         <% }) %>
+        </tbody>
+      </table>
+    </div>      
+  </body>
+</html>

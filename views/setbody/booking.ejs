@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ./../elements/booking-layout/header-booking %>
+    <style>
+        .typeticket {
+            position: absolute;
+            left: 49%;
+            -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+            top: -25px;
+            width: 100%;
+            background: -webkit-linear-gradient(bottom, #05dbff, #dd56ff);
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- breadcrumb start -->
+    <section class="breadcrumb-section flight-sec pt-0" style="height: 300px; image-rendering: pixelated;">
+        <img src="../assets/images/flights/flight-breadcrumb4.jpg" class="bg-img img-fluid blur-up lazyload" alt="">
+        <div class="content-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <nav aria-label="breadcrumb" class="theme-breadcrumb">
+                            <ol class="breadcrumb">                                
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- breadcrumb end -->
+
+
+    <!-- booking section start -->
+    <section class="small-section" style="margin-top: -30px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="review-section">
+                        <div class="review_box">
+                            <div class="title-top">
+                                <h5>Ticket</h5>
+                            </div>
+                            <div class="flight_detail">
+                                <% var tonggiave = result.recordset[0].GiaVe + result.recordset[0].TienTraThem;
+                                   var tongsoky = result.recordset[0].SoKgHanhLy + result.recordset[0].ThemSoKg; %>
+                                    <div class="row">
+                                        <div class="col-md-3" style="width: 22%">
+                                            <div class="logo-sec" style="text-align: center">
+                                                <% if (result.recordset[0].TenHang=="BamBoo Airways") { %>
+                                                    <img src="../assets/images/flights/airlines/bamboo_airway.png"
+                                                    class="img-fluid blur-up lazyload" alt="" >
+                                                <% } 
+                                                else if (result.recordset[0].TenHang=="VietNam Airlines") { %>
+                                                    <img src="../assets/images/flights/airlines/vietnam_airline.png"
+                                                    class="img-fluid blur-up lazyload" alt="" width="290" height="290">
+                                                <% }
+                                                else if (result.recordset[0].TenHang=="VietJet Air") { %>
+                                                    <img src="../assets/images/flights/airlines/vietject_logo.jpg"
+                                                    class="img-fluid blur-up lazyload" alt="" width="290" height="290">
+                                                <% } %>  <br />                             
+                                                <span class="title" name=""><%= result.recordset[0].TenHang %></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="airport-part">
+                                                <div class="airport-name">
+                                                    <h4 name=""><%= result.recordset[0].GioBay %></h4>
+                                                    <h6 name="" style="width: 95px"><%= result.recordset[0].NoiDi %></h6>
+                                                </div>
+                                                <div class="airport-progress">
+                                                    <div class="typeticket">
+                                                        <%= result.recordset[0].TenLoaiVe %>
+                                                    </div>
+                                                    <a name="idmaybay"></a>
+                                                    <i class="fas fa-plane-departure float-start"></i>
+                                                    <i class="fas fa-plane-arrival float-end"></i>
+                                                    <div class="stop" name="">
+                                                        <%= result.recordset[0].NgayBay.getDate()+"/"+result.recordset[0].NgayBay.getMonth()+"/"+result.recordset[0].NgayBay.getFullYear() %>
+                                                    </div>
+                                                </div>
+                                                <div class="airport-name arrival">
+                                                    <h4 name="" ><%= result.recordset[0].GioDen %></h4>
+                                                    <h6 name="" style="width: 95px"><%= result.recordset[0].NoiDen %></h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="price">
+                                                <div style="text-align: center">
+                                                    <span style="font-size: 3px; color: white" name="idVe"><%= result.recordset[0].idVe %></span>
+                                                    <h4 name="" style="margin-top: 3px;"><span id="tonggv"><%= tonggiave %></span> VNĐ</h4>
+                                                    <h6 name=""><%= tongsoky %> Kg</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>                           
+                            </div>
+                        </div>
+                        <div class="review_box">
+                            <div class="title-top">
+                                <h5>Flight Details</h5>
+                            </div>
+                            <div class="flight_detail">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="boxes">
+                                            <h6>Hãng máy bay: </h6>
+                                            <table>
+                                                <tr>
+                                                    <td style="width: 130px;">Hãng :</td>
+                                                    <td><%= result.recordset[0].TenHang %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Máy bay :</td>
+                                                    <td><%= result.recordset[0].TenMayBay %> 	&nbsp;&nbsp;&#124;&nbsp; Số lượng hành khách: <%= result.recordset[0].SoLuongKhach %></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <div class="boxes">
+                                            <h6>Chi tiết vé: </h6>
+                                            <table>
+                                                <tr>
+                                                    <td style="width: 130px;">Loại vé  :</td>
+                                                    <td>
+                                                        <%= result.recordset[0].TenLoaiVe %>
+                                                        <% if (result.recordset[0].TenLoaiVe == "Vé Basic") { %>
+                                                            <span>(Loại ghế: phổ thông &#124; Hành lý: +0kg )</span>
+                                                        <% } 
+                                                        else if (result.recordset[0].TenLoaiVe == "Vé Pro") { %>
+                                                            <span>(Loại ghế: phổ thông đặc biệt &#124; Hành lý: +3kg )</span>
+                                                        <% }
+                                                        else if (result.recordset[0].TenLoaiVe == "Vé Pro+") { %>
+                                                            <span>(Loại ghế: thương gia &#124; Hành lý: +5kg )</span>
+                                                        <% }
+                                                        else if (result.recordset[0].TenLoaiVe == "Vé Premium") { %>
+                                                            <span>(Loại ghế: hạng nhất &#124; Hành lý: +7kg )</span>
+                                                        <% } %>
+                                                        
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Ngày bay :</td>
+                                                    <td><%= result.recordset[0].NgayBay.getDate()+"/"+result.recordset[0].NgayBay.getMonth()+"/"+result.recordset[0].NgayBay.getFullYear() %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Giờ bay  :</td>
+                                                    <td><%= result.recordset[0].GioBay %> giờ (GMT +7 Đông Dương)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Giờ đến  :</td>
+                                                    <td><%= result.recordset[0].GioDen %> giờ (GMT +7 Đông Dương)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Nơi đi	 :</td>
+                                                    <td><%= result.recordset[0].NoiDi %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Nơi đến  :</td>
+                                                    <td><%= result.recordset[0].NoiDen %></td>
+                                                </tr>
+                                            </table>                     
+                                        </div>
+                                        <div class="boxes">
+                                            <h6>Hành lý: </h6>
+                                            <table>
+                                                <tr>
+                                                    <td style="width: 130px;">Số Kg cho phép :</td>
+                                                    <td><%= result.recordset[0].SoKgHanhLy %> Kg</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Số Kg thêm :</td>
+                                                    <td><%= result.recordset[0].ThemSoKg %> Kg</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Khung nhập thông tin-->
+                        <div class="review_box">
+                            <div class="title-top">
+                                <h5>Information Payment</h5>
+                            </div>
+                            <div class="flight_detail">
+                                <div class="row form_flight">
+                                    <div class="col-md-12">
+                                        <% if (user1.status == "SUCCES") { %>
+                                        <form action="/booking/payment" method="post">
+                                            <h6>Require Information: </h6><br />
+                                            <div class="row">
+                                                <div class="form-group col-md-6">
+                                                    <label for="first">Fullname: </label>
+                                                    <input type="text" name="HoTen2" value="<%= user1.data.auth[0].lastName %> <%= user1.data.auth[0].fristName %>" class="form-control" id="first" readonly required>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="last">Id User:</label>
+                                                    <input type="text" name="idUser2" value="<%= user1.data.auth[0].userId %>" class="form-control" id="first" readonly required>
+                                                </div>
+                                                
+                                                <br />
+                                                <div class="form-group col-md-6" style="margin-top: 30px;">
+                                                    <label for="inputEmail4">Email</label>
+                                                    <input type="Email2" name="Email2" value="<%= user1.data.auth[0].email %>" class="form-control" id="inputEmail4" readonly required>
+                                                </div>
+                                                <div class="form-group col-md-6" style="margin-top: 30px;">
+                                                    <label for="inputnumber">Phone no:</label>
+                                                    <input type="tel" name="Phone2" value="<%= user1.data.auth[0].phone %>" class="form-control" id="inputnumber" readonly required>
+                                                </div>
+
+                                                <br />
+                                                <div class="form-group col-md-6" style="margin-top: 30px;">
+                                                    <label for="inputEmail4">Address: </label>
+                                                    <input type="text" name="DiaChi2" value="<%= user1.data.auth[0].userAddress %>" class="form-control" readonly required>
+                                                </div>
+                                                <div class="form-group col-md-6" style="margin-top: 30px;">
+                                                    <label for="inputnumber">Cards Number: </label>
+                                                    <input type="number" name="Cards" value="<%= user1.data.auth[0].cards %>" class="form-control" readonly required>
+                                                </div>
+                                            </div>
+                                            <br />
+                                            <div class="row">
+                                                <div class="form-group col-md-6">
+                                                    <label for="inputEmail4">ID Vé: </label>
+                                                    <input type="text" name="idVe" class="form-control" value="<%= result.recordset[0].idVe %>" required readonly>
+                                                </div>
+                                                <% var tongthanhtoan = result.recordset[0].GiaVe + result.recordset[0].TienTraThem + (result.recordset[0].GiaVe * 0.1) + (result.recordset[0].GiaVe * 0.05);
+                                                %>
+                                                <div class="form-group col-md-6">
+                                                    <label for="inputnumber">Pay (VNĐ):</label>
+                                                    <input type="text" name="TienThanhToan" id="tienkhunggia" class="form-control" value="<%= tongthanhtoan %>" required readonly>
+                                                </div>
+                                                <% if(result.recordset[0].TrangThai == "Còn vé"){%>
+                                                    <div class="form-group col-md-6" style="margin-top: 30px;">
+                                                        <label for="inputnumber">Ticket Status: </label>
+                                                        <input type="text" style="color: green;" name="TrangThai" id="TrangThai" class="form-control" value="<%= result.recordset[0].TrangThai %>" required readonly>
+                                                    </div>
+                                                <%}else {%>
+                                                    <div class="form-group col-md-6" style="margin-top: 30px;">
+                                                        <label for="inputnumber">Ticket Status: </label>
+                                                        <input type="text" style="color: crimson;" name="TrangThai" id="TrangThai" class="form-control" value="<%= result.recordset[0].TrangThai %>" required readonly>
+                                                    </div>
+                                                <%}%>
+                                                
+                                            </div>
+                                            <br />
+                                            <% if(result.recordset[0].TrangThai == "Còn vé"){%>
+                                                <div class="continue-btn">
+                                                    <button class="btn btn-danger" type="submit">PAYMENT</button>
+                                                </div>
+                                            <%}else {%>
+                                                <div class="continue-btn">
+                                                    <input class="btn btn-success" type="text" value="SOLDOUT">
+                                                </div>
+                                            <%}%>
+                                            
+                                        </form>
+                                        <%}else{%>
+                                        <form action="/booking/payment" method="post">
+                                            <h6>Require Information: </h6><br />
+                                            <div class="row">
+                                                <div class="form-group col-md-6">
+                                                    <label for="first">Fullname: </label>
+                                                    <input type="text" name="HoTen2" class="form-control" id="first" required>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="last">Gender:</label>
+                                                    <select id="input" class="form-control" name="idUser2" required>
+                                                        <option selected>Choose...</option>
+                                                        <option>Nam</option>
+                                                        <option>Nữ</option>
+                                                    </select>
+                                                </div>
+                                                
+                                                <br />
+                                                <div class="form-group col-md-6" style="margin-top: 30px;">
+                                                    <label for="inputEmail4">Email</label>
+                                                    <input type="Email2" name="Email2" class="form-control" id="inputEmail4" required>
+                                                </div>
+                                                <div class="form-group col-md-6" style="margin-top: 30px;">
+                                                    <label for="inputnumber">Phone no:</label>
+                                                    <input type="tel" name="Phone2" class="form-control" id="inputnumber" required>
+                                                </div>
+
+                                                <br />
+                                                <div class="form-group col-md-6" style="margin-top: 30px;">
+                                                    <label for="inputEmail4">Address: </label>
+                                                    <input type="text" name="DiaChi2" class="form-control" required>
+                                                </div>
+                                                <div class="form-group col-md-6" style="margin-top: 30px;">
+                                                    <label for="inputnumber">Cards Number: </label>
+                                                    <input type="number" name="Cards" class="form-control" required>
+                                                </div>
+                                            </div>
+                                            <br />
+                                            <div class="row">
+                                                <div class="form-group col-md-6">
+                                                    <label for="inputEmail4">ID Vé: </label>
+                                                    <input type="text" name="idVe" class="form-control" value="<%= result.recordset[0].idVe %>" required readonly>
+                                                </div>
+                                                <% var tongthanhtoan = result.recordset[0].GiaVe + result.recordset[0].TienTraThem + (result.recordset[0].GiaVe * 0.1) + (result.recordset[0].GiaVe * 0.05);
+                                                %>
+                                                <div class="form-group col-md-6">
+                                                    <label for="inputnumber">Pay (VNĐ):</label>
+                                                    <input type="text" name="TienThanhToan" id="tienkhunggia" class="form-control" value="<%= tongthanhtoan %>" required readonly>
+                                                </div>
+                                                <% if(result.recordset[0].TrangThai == "Còn vé"){%>
+                                                    <div class="form-group col-md-6" style="margin-top: 30px;">
+                                                        <label for="inputnumber">Ticket Status: </label>
+                                                        <input type="text" style="color: green;" name="TrangThai" id="TrangThai" class="form-control" value="<%= result.recordset[0].TrangThai %>" required readonly>
+                                                    </div>
+                                                <%}else {%>
+                                                    <div class="form-group col-md-6" style="margin-top: 30px;">
+                                                        <label for="inputnumber">Ticket Status: </label>
+                                                        <input type="text" style="color: crimson;" name="TrangThai" id="TrangThai" class="form-control" value="<%= result.recordset[0].TrangThai %>" required readonly>
+                                                    </div>
+                                                <%}%>
+                                                
+                                            </div>
+                                            <br />
+                                            <% if(result.recordset[0].TrangThai == "Còn vé"){%>
+                                                <div class="continue-btn">
+                                                    <button class="btn btn-danger" type="submit">PAYMENT</button>
+                                                </div>
+                                            <%}else {%>
+                                                <div class="continue-btn">
+                                                    <input class="btn btn-success" type="text" value="SOLDOUT">
+                                                </div>
+                                            <%}%>
+                                            
+                                        </form>
+                                        <%}%>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 res-margin">
+                    <div class="sticky-cls-top">
+                        <div class="review-section">
+                            <div class="review_box">
+                                <div class="title-top">
+                                    <h5>
+                                        Payment Details
+                                    </h5>
+                                </div>
+                                <div class="flight_detail">
+                                    <div class="summery_box">
+                                        <table class="table table-borderless">
+                                            <tbody>
+                                                <tr style="height: 27px;">
+                                                    <td>Giá vé mặc định: </td>
+                                                    <td><span id="tiengiave"><%= result.recordset[0].GiaVe %></span> VNĐ</td>
+                                                </tr> 
+                                                <tr style="height: 27px;">
+                                                    <td>Giá loại vé: </td>
+                                                    <td><span id="tienloaive"><%= result.recordset[0].TienTraThem %></span> VNĐ</td>
+                                                </tr>
+                                                <tr style="height: 27px;">
+                                                    <td>VAT: </td>
+                                                    <td><span id="tienvat"><%= result.recordset[0].GiaVe * 0.1 %></span> VNĐ</td>
+                                                </tr>
+                                                <tr style="height: 27px;">
+                                                    <td>Dịch vụ: </td>
+                                                    <td><span id="tiendichvu"><%= result.recordset[0].GiaVe * 0.05 %></span> VNĐ</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <br />
+                                        <% if (user1.status == "SUCCES") { %>
+                                        <div class="input-group">
+                                            <i class="fas fa-coins" style="font-size: 37px; margin-right: 20px;"></i>
+                                            <button type="button" id="btnbtnuse" onclick="usepoint()" class="input-group-text" style="background-color: #b7f6f6; border-radius: 20px;">Use Point</button>
+                                            <div id="pointtru" style="margin: 10px 0 0 10px; color: #004eff;font-size: 16px;"><%= user1.data.auth[0].value_TotalPoint %> điểm : -<b id="setpointtru"><%= user1.data.auth[0].value_TotalPoint %></b> VNĐ</div>
+                                        </div>                      
+                                        <br />
+                                        <%}%>
+                                        <div class="form-group mb-0">
+                                            <h5>have a coupon code?</h5>
+                                            <div class="input-group">
+                                                <input type="text" id="macode" name="khuyenmai" class="form-control" placeholder="Promo Code">
+                                                <div class="input-group-prepend">
+                                                    <button onclick="applycode()" type="button" class="input-group-text" style="background-color: #b7f6f6;">Apply</button>
+                                                </div>
+                                            </div>
+                                        </div>                                       
+
+                                        <!--Khuyen Mai-->
+                                        <div class="tryoh">
+                                            <% resultkm.recordset.forEach(function(km) { %>  
+                                                <div class="form-group getrow234 <%= km.MaKhuyenMai %>">
+                                                    <% if (km.GiaTriKM < 1000){ %>
+                                                        <div id="getkm" style="margin: 10px 0 0 10px; color: #004eff;font-size: 16px;"> Đã áp dụng voucher : -<b class="kmcode"><%= km.GiaTriKM %></b> %</div>
+                                                    <%}
+                                                    else
+                                                    {%>
+                                                        <div id="getkm" style="margin: 10px 0 0 10px; color: #004eff;font-size: 16px;"> Đã áp dụng voucher : -<b class="kmcode"><%= km.GiaTriKM %></b> VNĐ</div>
+                                                    <%}%>
+
+                                                </div>
+                                            <%})%>
+                                        </div>
+
+                                        <div class="grand_total">
+                                            <h5>Tổng cộng: <span style="color: brown;"><b><a id="tientongcong"><%= tongthanhtoan %></a> VNĐ</b></span></h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>            
+        </div>
+    </section>
+    <!-- booking section end -->
+    <!-- book now section start -->
+    <div class="book-panel">
+        <h6 class="mb-0 text">grand total : <span>$2500</span></h6>
+        <button type="button" onclick="window.location.href='flight-booking-addons.html'"
+            class="btn bottom-btn theme-color">continue</button>
+    </div>
+    <!-- book now section end -->
+    <!-- footer start -->
+    <% include ./../elements/footer-other %>
+    <!-- footer end -->
+    <!-- tap to top -->
+    <div class="tap-top">
+        <div>
+            <i class="fas fa-angle-up"></i>
+        </div>
+    </div>
+    <!-- tap to top end -->
+    <!-- setting start -->
+    <div class="theme-setting">
+        <div class="dark">
+            <input class="tgl tgl-skewed" id="dark" type="checkbox">
+            <label class="tgl-btn" data-tg-off="Dark" data-tg-on="Light" for="dark"></label>
+        </div>
+        <div class="rtl">
+            <input class="tgl tgl-skewed" id="rtl" type="checkbox">
+            <label class="tgl-btn" data-tg-off="RTL" data-tg-on="LTR" for="rtl"></label>
+        </div>
+    </div>
+    <!-- setting end -->
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var tienkhunggia = document.getElementById("tienkhunggia").value;
+            var set_tienkhung = doi_tien(tienkhunggia);
+            document.getElementById("tienkhunggia").value = set_tienkhung;
+
+            var tientonggv = document.getElementById("tonggv").innerHTML;
+            var set_tientonggv = doi_tien(tientonggv);
+            document.getElementById("tonggv").innerHTML = set_tientonggv;
+
+            var tiengiave = document.getElementById("tiengiave").innerHTML;
+            var set_tiengiave = doi_tien(tiengiave);
+            document.getElementById("tiengiave").innerHTML = set_tiengiave;
+
+            var tienloaive = document.getElementById("tienloaive").innerHTML;
+            var set_tienloaive = doi_tien(tienloaive);
+            document.getElementById("tienloaive").innerHTML = set_tienloaive;
+
+            var tienvat = document.getElementById("tienvat").innerHTML;
+            var set_tienvat = doi_tien(tienvat);
+            document.getElementById("tienvat").innerHTML = set_tienvat;
+
+            var tiendichvu = document.getElementById("tiendichvu").innerHTML;
+            var set_tiendichvu = doi_tien(tiendichvu);
+            document.getElementById("tiendichvu").innerHTML = set_tiendichvu;
+
+            var tientongcong = document.getElementById("tientongcong").innerHTML;
+            var set_tientongcong = doi_tien(tientongcong);
+            document.getElementById("tientongcong").innerHTML = set_tientongcong;
+
+        })
+
+        $(document).ready(function () {
+            $(".tryoh .getrow234").filter(".getrow234").hide();
+            $("#pointtru").hide();
+        }) 
+        
+        var num2 = 1;
+        var giacodinh2 = [];
+        var diem = 0;
+        function usepoint(){  
+            var btnusepoint = $("#btnbtnuse").text();
+            if(btnusepoint == "Use Point"){
+                var gia = $("#tientongcong").text().split("."); 
+                               
+                if (num2 == 1) {
+                        giacodinh2 = gia;
+                    }                
+                    if (gia.length == 3) {
+                        var giaend = gia[0] + gia[1] + gia[2];
+                    }
+                    else if (gia.length == 2) {
+                        var giaend = gia[0] + gia[1];
+                    }
+                    else if (gia.length == 4) {
+                        var giaend = gia[0] + gia[1] + gia[2] + gia[3];
+                    }
+                    diem = $("#setpointtru").text();
+                    var point = $("#setpointtru").text()+"000";
+                    
+                    if (num2 == 1) {
+                        var sumtienend = trutien_point(parseInt(giaend), parseInt(point));
+                        num2++;
+                    }
+                    else {
+                        if (giacodinh2.length == 3) {
+                            var giaend = giacodinh2[0] + giacodinh2[1] + giacodinh2[2];
+                        }
+                        else if (giacodinh2.length == 2) {
+                            var giaend = giacodinh2[0] + giacodinh2[1];
+                        }
+                        else if (giacodinh2.length == 4) {
+                            var giaend = giacodinh2[0] + giacodinh2[1] + giacodinh2[2] + giacodinh2[3];
+                        }
+                        var sumtienend = trutien_point(parseInt(giaend), parseInt(point));
+                    }
+                    var setgia = doi_tien(sumtienend.toString());
+                    var setpoint = doi_tien(point.toString());
+                    num2++; 
+                    document.getElementById("tientongcong").innerHTML = setgia;
+                    document.getElementById("tienkhunggia").value = setgia;
+                    document.getElementById("setpointtru").innerHTML = setpoint;
+                    document.getElementById("btnbtnuse").innerHTML = "Del Point";
+                    document.getElementById("btnbtnuse").style.backgroundColor = "#fea27a";
+                    $("#pointtru").show();
+            } else{
+                if (giacodinh2.length == 3) {
+                            var giaend = giacodinh2[0] + giacodinh2[1] + giacodinh2[2];
+                        }
+                else if (giacodinh2.length == 2) {
+                            var giaend = giacodinh2[0] + giacodinh2[1];
+                        }
+                else if (giacodinh2.length == 4) {
+                            var giaend = giacodinh2[0] + giacodinh2[1] + giacodinh2[2] + giacodinh2[3];
+                }
+                document.getElementById("tientongcong").innerHTML = giaend;
+                    document.getElementById("tienkhunggia").value = giaend;
+                    document.getElementById("setpointtru").innerHTML = diem;
+                    document.getElementById("btnbtnuse").innerHTML = "Use Point";
+                    document.getElementById("btnbtnuse").style.backgroundColor = "#b7f6f6";
+                    $("#pointtru").hide();
+            }             
+            
+        }
+
+        function trutien_point(a, b) {
+            return a-b;
+        }
+
+        
+        var num = 1;
+        var giacodinh = [];
+        function applycode() {
+            $(".tryoh .getrow234").filter(".getrow234").hide();            
+            var code = document.getElementById("macode").value;            
+            $(`.tryoh .${code}`).show().is(function () {
+                var gia = $("#tientongcong").text().split(".");                
+                if (num == 1) {
+                    giacodinh = gia;
+                }                
+                if (gia.length == 3) {
+                    var giaend = gia[0] + gia[1] + gia[2];
+                }
+                else if (gia.length == 2) {
+                    var giaend = gia[0] + gia[1];
+                }
+                else if (gia.length == 4) {
+                    var giaend = gia[0] + gia[1] + gia[2] + gia[3];
+                }
+                var giakm = $(`.${code} .kmcode`).text();
+                if (num == 1) {
+                    var sumtienend = tinh_tien(parseInt(giaend), parseInt(giakm));
+                    num++;
+                }
+                else {
+                    if (giacodinh.length == 3) {
+                        var giaend = giacodinh[0] + giacodinh[1] + giacodinh[2];
+                    }
+                    else if (giacodinh.length == 2) {
+                        var giaend = giacodinh[0] + giacodinh[1];
+                    }
+                    else if (giacodinh.length == 4) {
+                        var giaend = giacodinh[0] + giacodinh[1] + giacodinh[2] + giacodinh[3];
+                    }
+                    var sumtienend = tinh_tien(parseInt(giaend), parseInt(giakm));
+                }
+                var setgia = doi_tien(sumtienend.toString());
+                num++;
+                document.getElementById("tientongcong").innerHTML = setgia;
+                document.getElementById("tienkhunggia").value = setgia;
+            })
+        }
+
+        function tinh_tien(a, b) {
+            if (b < 1000) {
+                return a - (b / 100 * a);
+            }
+            else {
+                return a - b;
+            }
+        }
+
+        function doi_tien(tongtien) {
+            var sum = "";
+            if (tongtien.length == 9) {
+                sum = tongtien[0] + tongtien[1] + tongtien[2] + "." + tongtien[3] + tongtien[4]+ tongtien[5] + "." + tongtien[6] + tongtien[7] + tongtien[8];
+            }
+            else if (tongtien.length == 8) {
+                sum = tongtien[0] + tongtien[1] + "." + tongtien[2] + tongtien[3] + tongtien[4] + "." + tongtien[5] + tongtien[6] + tongtien[7];
+            }
+            else if (tongtien.length == 7) {
+                sum = tongtien[0] + "." + tongtien[1] + tongtien[2] + tongtien[3] + "." + tongtien[4] + tongtien[5] + tongtien[6];
+            }
+            else if (tongtien.length == 6) {
+                sum = tongtien[0] + tongtien[1] + tongtien[2] + "." + tongtien[3] + tongtien[4] + tongtien[5];
+            }
+            else if (tongtien.length == 5) {
+                sum = tongtien[0] + tongtien[1] + "." + tongtien[2] + tongtien[3] + tongtien[4];
+            }
+            else if (tongtien.length == 0 || tongtien.length == 1 || tongtien == "" || tongtien == "0") {
+                sum = "0";
+            }
+            return sum;
+        }
+    </script>
+</body>
+</html>

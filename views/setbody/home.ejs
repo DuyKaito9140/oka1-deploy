@@ -1,0 +1,181 @@
+
+    <!-- pre-loader start -->
+    <div class="loader-wrapper img-gif">
+        <img src="../assets/images/loader.gif" alt="">
+    </div>
+     <!--pre-loader end -->    
+      
+    <!-- home section start -->
+	<section class="cab-section flight-section p-0">
+        <div class="cloud">
+            <img src="../assets/images/flights/cloud.png" alt="" class="bg-img">
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="cab-content">
+                        <div>
+                            <div class="top-cls">
+                                #OKA1-MB
+                            </div>
+                            <h2>great journey begins</h2>
+                            <h3>with a small step</h3>
+                            <form action="/setbody/home" method="POST">
+                                <div class="form-group">
+                                    <img src="../assets/images/icon/from.png" class="img-fluid blur-up lazyload" alt="">
+                                    <select class="form-select form-select-lg mb-3" aria-label="Default select example" name="chuyenbaynoidi" style="height: 54px;">
+                                        <option selected readonly>From...</option>  
+                                        <% result1.recordset.forEach(function(chuyenbay) { %>
+                                            <option><%= chuyenbay.NoiDi %></option>
+                                        <% }); %>        
+                                    </select>                                            
+                                </div>
+                                <div class="form-group">                    
+                                    <img src="../assets/images/icon/location.png" class="img-fluid blur-up lazyload" alt=""> 
+                                    <select class="form-select form-select-lg mb-3" aria-label="Default select example" name="chuyenbaynoiden" style="height: 54px;">
+                                        <option selected readonly>To...</option>
+                                        <% result2.recordset.forEach(function(chuyenbay) { %>
+                                            <option><%= chuyenbay.NoiDen %></option>
+                                        <% }); %>                                                                   
+                                    </select>                      
+                                </div>
+                                <div class="form-group row mb-0">
+                                    <div class="col">
+                                        <input type="date" class="form-control" style="font-size: 18px; height: 53px; border-radius: 3px"/>
+                                    </div>
+                                    <div class="col">
+                                        <select class="form-select form-select-lg mb-3" aria-label="Default select example" name="chuyenbaygiobay" style="height: 54px; font-size: 18px">
+                                            <option selected disabled>Hour...</option>
+                                            <option>0:00</option>
+                                            <option>0:30</option>
+                                            <option>1:00</option>
+                                            <option>1:30</option>
+                                            <option>2:00</option>
+                                            <option>2:30</option>
+                                            <option>3:00</option>
+                                            <option>3:30</option>
+                                            <option>4:00</option>
+                                            <option>4:30</option>
+                                            <option>5:00</option>
+                                            <option>5:30</option>
+                                            <option>6:00</option>
+                                            <option>6:30</option>
+                                            <option>7:00</option>
+                                            <option>7:30</option>
+                                            <option>8:00</option>
+                                            <option>8:30</option>
+                                            <option>9:00</option>
+                                            <option>9:30</option>
+                                            <option>10:00</option>
+                                            <option>10:30</option>
+                                            <option>11:00</option>
+                                            <option>11:30</option>
+                                            <option>12:00</option>
+                                            <option>12:30</option>
+                                            <option>13:00</option>
+                                            <option>13:30</option>
+                                            <option>14:00</option>
+                                            <option>14:30</option>
+                                            <option>15:00</option>
+                                            <option>15:30</option>
+                                            <option>16:00</option>
+                                            <option>16:30</option>
+                                            <option>17:00</option>
+                                            <option>17:30</option>
+                                            <option>18:00</option>
+                                            <option>18:30</option>
+                                            <option>19:00</option>
+                                            <option>19:30</option>
+                                            <option>20:00</option>
+                                            <option>20:30</option>
+                                            <option>21:00</option>
+                                            <option>21:30</option>
+                                            <option>22:00</option>
+                                            <option>22:30</option>
+                                            <option>23:00</option>
+                                            <option>23:30</option>
+                                        </select>
+                                    </div>
+                                    <div class="col">
+                                        <select class="form-select form-select-lg mb-3" aria-label="Default select example" name="chuyenbayloaive" style="height: 54px; font-size: 18px">
+                                            <option selected disabled>Type of ticket...</option>            
+                                            <% result3.recordset.forEach(function (loaive) { %>
+                                            <option><%= loaive.TenLoaiVe %></option>
+                                            <% }) %>
+                                        </select>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-rounded color1">book now</button></br>
+                            </form>
+                            <form class="radio-form" style="margin-top: 12px;">
+                                <input id="radio-1" type="radio" name="gender" value="in city" checked>
+                                <label for="radio-1" class="radio-label">multi-city route</label>
+                                <input id="radio-2" type="radio" name="gender" value="out of city">
+                                <label for="radio-2" class="radio-label">non stop flights</label>
+                            </form>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+     <!--  home section end -->
+
+    <!-- destination section start -->
+	<% include ./../elements/home-layout/destination-section %>
+     <!-- destination section end -->
+	 
+    <!-- airlines detail section start -->
+	<% include ./../elements/home-layout/airlines-detail %>
+     <!-- airlines detail section end -->
+
+    <!-- flight routes section start -->
+	<% include ./../elements/home-layout/flight-routes %>
+     <!-- flight routes section end -->
+
+    <!-- banner section start -->
+	<% include ./../elements/home-layout/banner-section %>
+     <!-- banner section end -->
+
+    <!-- airlines ticket section start -->
+	<% include ./../elements/home-layout/airlines-ticket %>
+     <!-- airlines ticket section end -->
+
+    <!-- top destination section start -->
+	<% include ./../elements/home-layout/top-destination %>
+     <!-- top destination section end -->
+
+    <!-- blog section start -->
+	<% include ./../elements/home-layout/blog-section %>
+     <!-- blog section end -->
+
+    <!-- subscribe section start -->
+	<% include ./../elements/home-layout/subscribe-section %>
+     <!-- subscribe section end -->
+
+    <!-- footer section start -->
+	<% include ./../elements/home-layout/footer-layout %>
+     <!-- footer section end -->
+
+    <!-- tap to top -->
+    <div class="tap-top">
+        <div>
+            <i class="fas fa-angle-up"></i>
+        </div>
+    </div>
+    <!-- tap to top end -->
+
+    <!-- setting start -->
+    <div class="theme-setting">
+        <div class="dark">
+            <input class="tgl tgl-skewed" id="dark" type="checkbox">
+            <label class="tgl-btn" data-tg-off="Dark" data-tg-on="Light" for="dark"></label>
+        </div>
+        <div class="rtl">
+            <input class="tgl tgl-skewed" id="rtl" type="checkbox">
+            <label class="tgl-btn" data-tg-off="RTL" data-tg-on="LTR" for="rtl"></label>
+        </div>
+    </div>
+    <!-- setting end -->
+   

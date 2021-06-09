@@ -1,0 +1,423 @@
+<style>
+    .typeticket {
+        position: absolute;
+        left: 49%;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+        top: -25px;
+        width: 100%;
+        background: -webkit-linear-gradient(bottom, #05dbff, #dd56ff);
+        width: 100px;
+    }
+</style>
+<!-- breadcrumb start -->
+<section class="breadcrumb-section" style="height: 400px; image-rendering: pixelated;">
+    <img src="../assets/images/flights/flight-breadcrumb4.jpg" style="filter: drop-shadow(0 0 5px blue);object-fit:fill; height: 400px;" class="bg-img blur-up lazyload" alt="">
+    <div class="flight run"></div>
+</section>
+<!-- breadcrumb end -->
+
+
+<!-- search section start -->
+<% include ./../elements/booknow-layout/search-section %>
+<!-- search section end -->
+
+
+<!-- section body start -->
+<section class="pt-0 bg-inner small-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="left-sidebar">
+                    <div class="back-btn">
+                        back
+                    </div>
+                    <div class="search-bar">
+                        <input type="text" placeholder="Search here..">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="middle-part collection-collapse-block open">
+                        <a href="javascript:void(0)" class="section-title collapse-block-title">
+                            <h5>latest filter</h5>
+                            <img src="../assets/images/icon/adjust.png" class="img-fluid blur-up lazyload" alt="">
+                        </a>
+                        <div class="collection-collapse-block-content ">
+                            <div class="filter-block">
+                                <div class="collection-collapse-block open">
+                                    <h6 class="collapse-block-title">stops</h6>
+                                    <div class="collection-collapse-block-content">
+                                        <div class="collection-brand-filter">
+                                            <div class="form-check collection-filter-checkbox">
+                                                <input type="checkbox" class="form-check-input" id="free-d">
+                                                <label class="form-check-label" for="free-d">non stop</label>
+                                            </div>
+                                            <div class="form-check collection-filter-checkbox">
+                                                <input type="checkbox" class="form-check-input" id="time">
+                                                <label class="form-check-label" for="time">1 stop</label>
+                                            </div>
+                                            <div class="form-check collection-filter-checkbox">
+                                                <input type="checkbox" class="form-check-input" id="zara">
+                                                <label class="form-check-label" for="zara">2 stop</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="filter-block">
+                                <div class="collection-collapse-block open">
+                                    <h6 class="collapse-block-title">price</h6>
+                                    <div class="collection-collapse-block-content">
+                                        <div class="wrapper">
+                                            <div class="range-slider">
+                                                <input type="text" class="js-range-slider" value="" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="filter-block">
+                                <div class="collection-collapse-block open">
+                                    <h6 class="collapse-block-title">airlines</h6>
+                                    <div class="collection-collapse-block-content">
+                                        <div class="collection-brand-filter">
+                                            <div class="form-check collection-filter-checkbox">
+                                                <input type="checkbox" class="form-check-input" id="wifi">
+                                                <label class="form-check-label" for="wifi">Qatar airways</label>
+                                            </div>
+                                            <div class="form-check collection-filter-checkbox">
+                                                <input type="checkbox" class="form-check-input" id="spa">
+                                                <label class="form-check-label" for="spa">singapore
+                                                    airlines</label>
+                                            </div>
+                                            <div class="form-check collection-filter-checkbox">
+                                                <input type="checkbox" class="form-check-input" id="pet">
+                                                <label class="form-check-label" for="pet">Nippon Airways</label>
+                                            </div>
+                                            <div class="form-check collection-filter-checkbox">
+                                                <input type="checkbox" class="form-check-input" id="parking">
+                                                <label class="form-check-label" for="parking">Cathay
+                                                    Pacific</label>
+                                            </div>
+                                            <div class="form-check collection-filter-checkbox">
+                                                <input type="checkbox" class="form-check-input" id="swimming">
+                                                <label class="form-check-label" for="swimming">Emirates</label>
+                                            </div>
+                                            <div class="form-check collection-filter-checkbox">
+                                                <input type="checkbox" class="form-check-input" id="chinese">
+                                                <label class="form-check-label" for="chinese">Hainan
+                                                    Airlines</label>
+                                            </div>
+                                            <div class="form-check collection-filter-checkbox">
+                                                <input type="checkbox" class="form-check-input" id="restaurant">
+                                                <label class="form-check-label" for="restaurant">Qantas
+                                                    Airways</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="filter-block">
+                                <div class="collection-collapse-block open">
+                                    <h6 class="collapse-block-title">departure time</h6>
+                                    <div class="collection-collapse-block-content">
+                                        <div class="collection-brand-filter">
+                                            <div class="form-check collection-filter-checkbox">
+                                                <input type="checkbox" class="form-check-input" id="suomi">
+                                                <label class="form-check-label" for="suomi"><img
+                                                        src="../assets/images/icon/time/sunrise.png"
+                                                        class="img-fluid blur-up lazyload me-1" alt=""> morning (6am
+                                                    to 12pm)</label>
+                                            </div>
+                                            <div class="form-check collection-filter-checkbox">
+                                                <input type="checkbox" class="form-check-input" id="english">
+                                                <label class="form-check-label" for="english"><img
+                                                        src="../assets/images/icon/time/sun.png"
+                                                        class="img-fluid blur-up lazyload me-1" alt=""> noon (12pm
+                                                    to 6pm)</label>
+                                            </div>
+                                            <div class="form-check collection-filter-checkbox">
+                                                <input type="checkbox" class="form-check-input" id="sign">
+                                                <label class="form-check-label" for="sign"><img
+                                                        src="../assets/images/icon/time/night.png"
+                                                        class="img-fluid blur-up lazyload me-1" alt=""> evening
+                                                    (after 6pm)</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="filter-block">
+                                <div class="collection-collapse-block open">
+                                    <h6 class="collapse-block-title">arrival time</h6>
+                                    <div class="collection-collapse-block-content">
+                                        <div class="collection-brand-filter">
+                                            <div class="form-check collection-filter-checkbox">
+                                                <input type="checkbox" class="form-check-input" id="morning">
+                                                <label class="form-check-label" for="morning"><img
+                                                        src="../assets/images/icon/time/sunrise.png"
+                                                        class="img-fluid blur-up lazyload me-1" alt=""> morning (6am
+                                                    to 12pm)</label>
+                                            </div>
+                                            <div class="form-check collection-filter-checkbox">
+                                                <input type="checkbox" class="form-check-input" id="noon">
+                                                <label class="form-check-label" for="noon"><img
+                                                        src="../assets/images/icon/time/sun.png"
+                                                        class="img-fluid blur-up lazyload me-1" alt=""> noon (12pm
+                                                    to 6pm)</label>
+                                            </div>
+                                            <div class="form-check collection-filter-checkbox">
+                                                <input type="checkbox" class="form-check-input" id="evening">
+                                                <label class="form-check-label" for="evening"><img
+                                                        src="../assets/images/icon/time/night.png"
+                                                        class="img-fluid blur-up lazyload me-1" alt=""> evening
+                                                    (after 6pm)</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-info">
+                        <h5><span>i</span> need help</h5>
+                        <h4>856 - 215 - 211</h4>
+                        <h6>Monday to Friday 9.00am - 7.30pm</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9 ratio3_2">
+                <a href="javascript:void(0)" class="mobile-filter border-top-0">
+                    <h5>latest filter</h5>
+                    <img src="../assets/images/icon/adjust.png" class="img-fluid blur-up lazyload" alt="">
+                </a>
+                <div class="top-bar-flight">
+                    <div class="date-fare-slider">
+                        <div class="fare-6">
+                            <div>
+                                <a href="javascript:void(0)">
+                                    <div class="fare-box">
+                                        <h5 class="date">oct 14</h5>
+                                        <h6 class="fare">$250</h6>
+                                    </div>
+                                </a>
+                            </div>
+                            <div>
+                                <a href="javascript:void(0)">
+                                    <div class="fare-box">
+                                        <h5 class="date">oct 15</h5>
+                                        <h6 class="fare">$250</h6>
+                                    </div>
+                                </a>
+                            </div>
+                            <div>
+                                <a href="javascript:void(0)">
+                                    <div class="fare-box active">
+                                        <h5 class="date">oct 16</h5>
+                                        <h6 class="fare">$250</h6>
+                                    </div>
+                                </a>
+                            </div>
+                            <div>
+                                <a href="javascript:void(0)">
+                                    <div class="fare-box">
+                                        <h5 class="date">oct 17</h5>
+                                        <h6 class="fare">$250</h6>
+                                    </div>
+                                </a>
+                            </div>
+                            <div>
+                                <a href="javascript:void(0)">
+                                    <div class="fare-box">
+                                        <h5 class="date">oct 18</h5>
+                                        <h6 class="fare">$250</h6>
+                                    </div>
+                                </a>
+                            </div>
+                            <div>
+                                <a href="javascript:void(0)">
+                                    <div class="fare-box">
+                                        <h5 class="date">oct 19</h5>
+                                        <h6 class="fare">$250</h6>
+                                    </div>
+                                </a>
+                            </div>
+                            <div>
+                                <div class="fare-box">
+                                    <h5 class="date">oct 22</h5>
+                                    <h6 class="fare">$250</h6>
+                                </div>
+                            </div>
+                            <div>
+                                <a href="javascript:void(0)">
+                                    <div class="fare-box">
+                                        <h5 class="date">oct 22</h5>
+                                        <h6 class="fare">$250</h6>
+                                    </div>
+                                </a>
+                            </div>
+                            <div>
+                                <a href="javascript:void(0)">
+                                    <div class="fare-box">
+                                        <h5 class="date">oct 22</h5>
+                                        <h6 class="fare">$250</h6>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fare-calender">
+                        <div>
+                            <i class="far fa-calendar-alt"></i>
+                            <h6 class="title">fare calender</h6>
+                        </div>
+                        <div class="calender-external">
+                            <div id='calendar'></div>
+                        </div>
+                    </div>
+                </div>
+                <form class="flight-detail-sec">
+                    <div class="title-bar">
+                        <div class="row">
+                            <div class="col-2">
+                                <p>Airline</p>
+                            </div>
+                            <div class="col-5">
+                                <p>departure & arrival</p>
+                            </div>
+                            <div class="col-2">
+                                <p>price</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="detail-bar">
+                        <% result.recordset.forEach(function (vemaybay) { %>
+                            <% if(vemaybay.TrangThai == "Còn vé"){%>
+                                <div class="detail-wrap wow fadeInUp">
+                                <%}
+                            else{%>
+                                <div class="detail-wrap wow fadeInUp" style="background-color: #e9e5e5">
+                            <%}%>                            
+                                <div class="row">
+                                    <% var tonggiave = vemaybay.GiaVe + vemaybay.TienTraThem;
+                                       var tongsoky = vemaybay.SoKgHanhLy + vemaybay.ThemSoKg; %>
+                                    <div class="col-md-2">                            
+                                        <div class="logo-sec">
+                                            <% if (vemaybay.TenHang=="BamBoo Airways") { %>
+                                                <img src="../assets/images/flights/airlines/bamboo_airway.png"
+                                                class="img-fluid blur-up lazyload" alt="" >
+                                            <% } 
+                                            else if (vemaybay.TenHang=="VietNam Airlines") { %>
+                                                <img src="../assets/images/flights/airlines/vietnam_airline.png"
+                                                class="img-fluid blur-up lazyload" alt="" width="290" height="290">
+                                            <% }
+                                            else if (vemaybay.TenHang=="VietJet Air") { %>
+                                                <img src="../assets/images/flights/airlines/vietject_logo.jpg"
+                                                class="img-fluid blur-up lazyload" alt="" width="290" height="290">
+                                            <% } %>                               
+                                            <span class="title" name=""><%= vemaybay.TenHang %></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="airport-part">
+                                            <div class="airport-name">
+                                                <h4 name=""><%= vemaybay.GioBay %></h4>
+                                                <h6 name="" style="width: 50px"><%= vemaybay.NoiDi %></h6>
+                                            </div>
+                                            <div class="airport-progress">
+                                                <div class="typeticket">
+                                                    <%= vemaybay.TenLoaiVe %>
+                                                </div>
+                                                <a name=""></a>
+                                                <i class="fas fa-plane-departure float-start"></i>
+                                                <i class="fas fa-plane-arrival float-end"></i>
+                                                <div class="stop" name="">
+                                                    <%= vemaybay.NgayBay.getDate()+"/"+vemaybay.NgayBay.getMonth()+"/"+vemaybay.NgayBay.getFullYear() %>
+                                                </div>
+                                            </div>
+                                            <div class="airport-name arrival">
+                                                <h4 name=""><%= vemaybay.GioDen %></h4>
+                                                <h6 name="" style="width: 50px"><%= vemaybay.NoiDen %></h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="price">
+                                            <div>
+                                                <span style="font-size: 3px; color: white" name="idVe"><%= vemaybay.idVe %></span>
+                                                <h4 name=""><%= tonggiave %> VNĐ</h4>
+                                                <h6 name=""><%= tongsoky %> Kg</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <% if(vemaybay.TrangThai == "Còn vé"){%>
+                                    <div class="col-md-3">
+                                        <div class="book-flight">
+                                            <a href="/setbody/booking/<%= vemaybay.idVe %>" class="btn btn-solid color1 ">book now</a>
+                                        </div>
+                                    </div>
+                                    <%}
+                                    else{%>
+                                    <div class="col-md-3">
+                                        <div class="book-flight">
+                                            <div style="width: 116px; height: 35px;padding-top: 5px; font-size: 16px; font-weight: 700;
+                                                text-align: center; color: white; background-color: seagreen;">Sold Out</div>                                                
+                                        </div>
+                                    </div>
+                                    <%}%>
+                                </div>
+                            </div>                                    
+                        <% }) %>                                              
+                    </div>
+                </form>
+                <nav aria-label="Page navigation example" class="pagination-section mt-0">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link" href="javascript:void(0)" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="javascript:void(0)">1</a></li>
+                        <li class="page-item"><a class="page-link" href="javascript:void(0)">2</a></li>
+                        <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- section body End -->
+
+
+<!-- footer start -->
+<% include ./../elements/footer-other %>
+<!-- footer end -->
+
+
+<!-- tap to top -->
+<div class="tap-top">
+    <div>
+        <i class="fas fa-angle-up"></i>
+    </div>
+</div>
+<!-- tap to top end -->
+
+
+<!-- setting start -->
+<div class="theme-setting">
+    <div class="dark">
+        <input class="tgl tgl-skewed" id="dark" type="checkbox">
+        <label class="tgl-btn" data-tg-off="Dark" data-tg-on="Light" for="dark"></label>
+    </div>
+    <div class="rtl">
+        <input class="tgl tgl-skewed" id="rtl" type="checkbox">
+        <label class="tgl-btn" data-tg-off="RTL" data-tg-on="LTR" for="rtl"></label>
+    </div>
+</div>
+<!-- setting end -->

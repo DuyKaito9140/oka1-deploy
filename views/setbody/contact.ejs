@@ -1,0 +1,135 @@
+<style>
+    #btnserch{
+                margin-left: 5px;
+                border-radius: .25rem;
+            }
+</style>
+<% if(user2.status == "SUCCES"){ %>
+    <div style="width: 100%; height: 60px; background-color: #00a6ff;"></div>      
+      <br />
+    <%} else{%>
+      <div style="width: 100%; height: 108px; background-color: #00a6ff;"></div>      
+      <br />
+      <%}%>
+<section class="blog_section destination-section ratio_55">
+    <div class="container">
+        <div class="vmb-homepage">
+            <div class="vmb-help-page">
+                <div class="vmb-helping py-4">
+                    <div class="container">
+                        <h1 class="m-0"> MAPS </h1><br />
+                        <div class="row sub_content">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <div class="maps">
+                                    <div class="page_maps">
+                                        <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1099.8148051389157!2d106.69608889127295!3d10.78875316046777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f34c509ba57%3A0xdcd07b0708f419cb!2zMTQ1IMSQaeG7h24gQmnDqm4gUGjhu6csIMSQYSBLYW8sIFF14bqtbiAxLCBI4buTIENow60gTWluaCwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1579694716876!5m2!1svi!2s" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen=""> </iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h2>Địa chỉ văn phòng tại Tp.HCM</h2><br />
+                                <ul class="widget_info_contact">
+                                    <li>
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <p>
+                                            <strong>Địa chỉ:</strong>
+                                            145 Điện Biên Phủ, Đa, Quận 1, Tp.HCM
+                                        </p>
+                                    </li><br />
+                                    <li>
+                                        <i class="fa fa-user"></i>
+                                        <p>
+                                            <strong>Phone:</strong>
+                                            0912.228.997 - 0961.938.388 - 0931.038.068
+                                        </p>
+                                    </li><br />
+                                    <li>
+                                        <i class="fa fa-envelope"></i>
+                                        <p>
+                                            <strong>Email: </strong>
+                                            <a href="#">Goldservice@gmail.com</a>
+                                        </p>
+                                    </li>
+                                </ul><br />
+                                <h2>Địa chỉ văn phòng tại Hà Nội</h2><br />
+                                <ul class="widget_info_contact">
+                                    <li>
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <p>
+                                            <strong>Địa chỉ: </strong>
+                                            45 ngõ 185, Chùa Láng, Q.Đống Đa, Tp.Hà Nội
+                                        </p>
+                                    </li><br />
+                                    <li>
+                                        <i class="fa fa-user"></i>
+                                        <p>
+                                            <strong>Phone: </strong>
+                                            0912.228.997 - 0961.938.388 - 0931.038.068
+                                        </p>
+                                    </li><br />
+                                    <li>
+                                        <i class="fa fa-envelope"></i>
+                                        <p>
+                                            <strong>Email: </strong>
+                                            <a href="#">Goldservice@gmail.com</a>
+                                        </p>
+                                    </li>
+                                </ul><br />
+                                <form action="~/lien-he" method="post" class="needs-validation">
+                                    <div> <h3 class="vmb-help-border-bt"><b> Chi tiết </b></h3></div><br />
+                                    <div class="vmb-help-ready-title">
+                                        <h5>Vui lòng để lại lời nhắn, chúng tôi sẽ phản hồi cho bạn trong thời gian sớm nhất</h5>
+                                    </div>
+                                    <div class="register">
+                                        <label class="register-label"> Tên của bạn </label>
+                                        <textarea rows="2" name="message" class="form-control rounded-0"></textarea>
+                                        <input type="text" name="fullName" class="form-control rounded-0 border-0 px-0" />
+                                    </div>
+                                    <div>
+                                        <label class="register-label"> Số điện thoại </label>
+                                        <textarea rows="2" name="message" class="form-control rounded-0"></textarea>
+                                        <input type="text" name="fullName" class="form-control rounded-0 border-0 px-0" />
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-md-6">
+                                <h2> Thông tin liên hệ</h2> <br />
+                                <p>Thắc mắc & góp ý : 19006091</p>
+                                <p>Thắc mắc & góp ý : 19006091</p>
+                                <p>Phàn nàn & khiếu nại: 1900691</p>
+                                <p>Liên hệ hóa đơn: 1900691</p>
+                                <p>Liên hệ thanh toán: 1900691</p>
+                                <p>Liên hệ đặt vé nội địa: 1900691</p>
+                                <p>Liên hệ đặt vé quốc tế: 1900691</p>
+                                <p>Liên hệ hợp tác: 1900691</p>
+                                <p>Liên hệ khác: 1900691</p>
+                                <div class="vmb-help mt-5">
+                                    <form action="~/lien-he" method="post" class="needs-validation">
+                                        <div>
+                                            <label class="register-label"> Email </label>
+                                            <textarea rows="2" name="message" class="form-control rounded-0"></textarea>
+                                            <input type="text" name="fullName" class="form-control rounded-0 border-0 px-0" />
+                                        </div>
+                                        <div>
+                                            <label class="register-label">Nội dung</label>
+                                            <textarea rows="7" name="message" class="form-control rounded-0"></textarea>
+                                        </div>
+                                        <div class="content-end my-3">
+                                            <button class="btn btn-warning btn-vmb btn-block" type="Submit">Gửi Liên Hệ</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

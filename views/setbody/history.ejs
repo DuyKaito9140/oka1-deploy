@@ -1,0 +1,186 @@
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+        overflow: hidden;
+    }
+
+    td, th {
+        border-top: 1px solid #8500ff;
+        padding: 10px;
+        text-align: center;
+    }
+
+    tr {
+        background-color: #fffdef;
+    }
+
+    td {
+        border-left: 1px solid #ECF0F1;
+        border-right: 1px solid #ECF0F1;
+    }
+
+    th {
+        background-color: #4ECDC4;
+        color: #950a0a;
+    }
+
+    tr:nth-of-type(even) td {
+        background-color: lighten(#4ECDC4, 35%);
+    }
+
+    .typeticket {
+        position: absolute;
+        left: 49%;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+        top: -25px;
+        width: 100%;
+        background: -webkit-linear-gradient(bottom, #05dbff, #dd56ff);
+        width: 100px;
+    }
+
+    .myclassed {
+        width: 35px;
+        height: 35px;
+        border: 1px solid #d6d4d4;
+        background-color: white;
+        margin-left: 5px;
+        padding-top: 7px;
+        text-align: center;
+        vertical-align: central;
+    }
+
+    .myclassed:hover {
+        background-color: #ffe75b;
+        cursor: pointer;
+    }
+</style>
+<div style="width: 100%; height: 108px; background-color: #00a6ff;"></div>
+<div class="container mt-5">
+    <form class="flight-detail-sec">
+        <div class="detail-bar">
+            <table>
+                <tr>
+                    <th>TICKETS BOOKED</th>
+                    <th>DAY BOOKED</th>
+                    <th>ACTION</th>
+                </tr>
+                <% result.recordset.forEach(function(vemaybay) { %>
+                    <% if(vemaybay.idUser2 == user1.data.auth[0].userId){ %>
+                        <% var tongsokg = vemaybay.SoKgHanhLy + vemaybay.ThemSoKg; %>
+                        <tr>
+                            <td>                                           
+                                <div class="detail-wrap wow fadeInUp" style="background-color: #dceef6;">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="logo-sec">
+                                                <% if (vemaybay.TenHang=="BamBoo Airways") { %>
+                                                    <img src="../assets/images/flights/airlines/bamboo_airway.png"
+                                                    class="img-fluid blur-up lazyload" alt="" >
+                                                <% } 
+                                                else if (vemaybay.TenHang=="VietNam Airlines") { %>
+                                                    <img src="../assets/images/flights/airlines/vietnam_airline.png"
+                                                    class="img-fluid blur-up lazyload" alt="" width="290" height="290">
+                                                <% }
+                                                else if (vemaybay.TenHang=="VietJet Air") { %>
+                                                    <img src="../assets/images/flights/airlines/vietject_logo.jpg"
+                                                    class="img-fluid blur-up lazyload" alt="" width="290" height="290">
+                                                <% } %>
+                                                <span class="title" name=""><%= vemaybay.TenHang %></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="airport-part">
+                                                <div class="airport-name">
+                                                    <h4 name=""><%= vemaybay.GioBay %></h4>
+                                                    <h6 name="" style="width: 50px"><%= vemaybay.NoiDi %></h6>
+                                                </div>
+                                                <div class="airport-progress">
+                                                    <div class="typeticket">
+                                                        <%= vemaybay.TenLoaiVe %>
+                                                    </div>
+                                                    <a name=""></a>
+                                                    <i class="fas fa-plane-departure float-start"></i>
+                                                    <i class="fas fa-plane-arrival float-end"></i>
+                                                    <div class="stop" name="">
+                                                        <%= vemaybay.NgayBay.getDate()%>/<%= vemaybay.NgayBay.getMonth() + 1%>/<%= vemaybay.NgayBay.getFullYear()%>
+                                                    </div>
+                                                </div>
+                                                <div class="airport-name arrival">
+                                                    <h4 name=""><%= vemaybay.GioDen %></h4>
+                                                    <h6 name="" style="width: 50px"><%= vemaybay.NoiDen %></h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="price">
+                                                <div>
+                                                    <span style="font-size: 3px; color: white" name="idVe"><%= vemaybay.idVe[0] %></span>
+                                                    <h4 name=""><%= vemaybay.TienThanhToan %> VNĐ</h4>
+                                                    <h6 name="" style="margin-top: 5px;"><%= tongsokg %> Kg</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </td>
+                            <td style="font-size: 18px">
+                                <%= vemaybay.NgayDat.getDate()%>/<%= vemaybay.NgayDat.getMonth() + 1 %>/<%= vemaybay.NgayDat.getFullYear()%>
+                            </td>
+                            <% 
+                                 var day = vemaybay.NgayBay.getDate();
+                                 var month = vemaybay.NgayBay.getMonth() + 1;
+                                 var year = vemaybay.NgayBay.getFullYear();
+                                 
+                                 function ckeckngay(d,m,y){
+                                    var date = new Date();
+                                    var y_now = date.getFullYear();
+                                    var m_now = date.getMonth() + 1;
+                                    var d_now = date.getDate();
+                            
+                                    if(y < y_now){
+                                        return 0 
+                                    }
+                                    else if(y == y_now && m < m_now){
+                                        return 0
+                                    }
+                                    else if(y == y_now && m == m_now && (d-d_now) < 0){
+                                        return 0
+                                    }
+                                    else if(y == y_now && m == m_now && (d-d_now) < 2 && (d-d_now) >= 0){
+                                        return 1
+                                    }
+                                    else{
+                                        return 2
+                                    }
+                                }
+
+                                var check = ckeckngay(day,month,year);
+                            %>  
+                            <% if(check == 2){%>
+                                <td>
+                                    <button class="btn btn-danger" style="font-size: 13px;width: 140px;">Return Ticket</button>
+                                </td>
+                            <%}else if(check == 1) {%>
+                                <td>
+                                    <input class="btn btn-warning" style="font-size: 13px;width: 140px;" value="Prepare..." />
+                                </td>
+                            <%} else {%> 
+                                <td>
+                                    <input class="btn btn-success" style="font-size: 13px;width: 140px;" value="Complete" />
+                                </td> 
+                            <%}%>                                                   
+                        </tr>
+                    <%}%>
+                <%})%>
+            </table>
+            
+        </div>
+    </form>
+</div>
+<br />
+<br />
+<br />

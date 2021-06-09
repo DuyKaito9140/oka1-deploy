@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Home</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div style="width: 100%; height: 60px; background-color: #00a6ff;"></div>      
+    <br /> 
+    <div class="container mt-3"> 
+     <h3 class="text-center">Thêm Vé Mới</h3>
+     <form action="/ticket/add" method="post">
+          <label for="idChuyenBay">Chọn chuyến bay <a style="color: red;">(Số lượng khách bằng số lượng vé sẽ được tạo của 1 chuyến bay !)</a></label>
+          <select class="form-select" aria-label="Default select example" name="idChuyenBay">
+            <option selected disabled="disabled">...</option>             
+            <% result.recordset.forEach(function (chuyenbay) { %>
+              <% if(chuyenbay.TenHang == user2.data.partnerUsername) {%>
+            <option><%= chuyenbay.idChuyenBay %> <%= chuyenbay.NgayBay %> &#124; <%= chuyenbay.GioBay %> &#45;&#62; <%= chuyenbay.GioDen %> 
+              &#124; <%= chuyenbay.NoiDi %> &#45;&#62; <%= chuyenbay.NoiDen %> &#124; <%= chuyenbay.TenMayBay %> &#124; <%= chuyenbay.TenHang %> &#124;Khách: <%= chuyenbay.SoLuongKhach %></option>                
+              <%}%>
+           <% }) %>
+          </select>          
+          <label for="SoKgHanhLy">Số Kg hành lý mặc định</label>
+          <input type="text" name="SoKgHanhLy" class="form-control">
+          <label for="GiaVe">Giá vé</label>
+          <input type="text" name="GiaVe" class="form-control">                  
+          <input type="submit" value="Thêm mới" class="btn btn-primary mt-2"> <br>
+          <a href="/ticket/index">Quay lại?</a>
+     </form>
+    </div>
+  </body>
+</html>
